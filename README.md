@@ -30,7 +30,9 @@ a bash-based CLI tool that allows users to quickly upload files to a specified c
 1. cd into the repo you cloned.
 2. run the following in your terminal.
    
-   - aws configure
+````
+aws configure
+````
      
 4. type in your 
 
