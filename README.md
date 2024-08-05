@@ -17,7 +17,7 @@ a bash-based CLI tool that allows users to quickly upload files to a specified c
          - open an aws account if you do not have one, if you do sign in.
          - download the AWS CLI, follow the steps in the AWS docs, depending on the OS of your local machine.
 
-** Now that prerequisites have been met, the following tasks will be accomplished to successfully create a clouduploader CLI **
+**Now that prerequisites have been met, the following tasks will be accomplished to successfully create a clouduploader CLI**
 
 
 
