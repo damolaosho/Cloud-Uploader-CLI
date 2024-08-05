@@ -19,5 +19,18 @@ a bash-based CLI tool that allows users to quickly upload files to a specified c
 
 **Now that prerequisites have been met, the following tasks will be accomplished to successfully create a clouduploader CLI**
 
+### IAM SETUP
+1. Login to your AWS console.
+2. search for IAM service and create an IAM role e.g 'cloud-uploader'.
+3. attach policies to the 'cloud-uploader' user, using the principle of least privilege.
+4. while in the IAM user page, create an access key for the 'cloud-uploader' and download the credentials.
+
+### TERMINAL SETUP
+
+1. cd into the repo you cloned.
+2. run the following in your terminal.
+   `aws configure`
+3. type in your 
+
 
 
