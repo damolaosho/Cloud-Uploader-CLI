@@ -32,7 +32,11 @@ a bash-based CLI tool that allows users to quickly upload files to a specified c
 aws configure
 ````
      
-4. type in your 
-
+4. it will prompt for your `ACCESS_KEY_ID`, `ACCESS_SECRET_KEY`, `password` and `default-output`
+5. once this is done, you can test the aws connection by running a simple command, such as:
+   ````
+   aws s3 ls
+   ````
+   this will list all s3 buckets associated with your aws iam account. 
 
 
