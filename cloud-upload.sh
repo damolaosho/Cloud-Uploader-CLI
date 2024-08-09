@@ -10,6 +10,34 @@ else
     exit 2
 fi #end of if block
 
+#searches if file already exists in s3 bucket
+if aws s3 ls "s3://cloud-upload-bucket-03082024/upload-cv.docx" > /dev/null 2>&1; then
+    echo "file already exists!!, file upload canceled!"
+    exit 3
+    read -p "choose an option [O]verwrite, [S]kip, [R]ename: " action
+    action=$(echo"$action" | tr '[:lower]' '[:upper]')
+
+    case $action in
+        O)
+            echo "Overwriting the bucket in the cloud..."
+            aws s3  cp "./upload-cv.docx" "s3://cloud-upload-bucket-03082024/upload-cv.docx"
+            ;;
+        S)
+            echo "Skipping the file upload..."
+            ;;
+        R)
+            read Enter new file name for the cloud:  
+            aws s3 cp "./upload-cv.docx" "s3://cloud-upload-bucket-03082024/upload-cv.docx"
+            ;;
+        *)
+            echo "invalid input"
+            exit 4
+            ;;
+    esac
+else 
+    echo "file not found!!!"
+
+fi 
 
 #upload file to s3 bucket
 upload_cmd=$(pv ./upload-cv.docx | aws s3 cp "./upload-cv.docx" "s3://cloud-upload-bucket-03082024/" 2>&1)
@@ -27,10 +55,10 @@ if [ $upload_status -eq 0 ]; then
         echo "shareable link: $presigned_url"
     else
         echo "Failed to generate shareable link"
-        exit 4
+        exit 6
     fi
 else
     echo "upload failed, $upload_cmd"
-    exit 3
+    exit 5
 fi
 
